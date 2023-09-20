@@ -1,0 +1,22 @@
+name: Fail On PR Review
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  fail_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Run Python script
+      run: |
+        python .github/scripts/fail_script.py
+
+
+
+
+
+
